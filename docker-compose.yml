@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  db:
+    image: "bitnami/postgresql:latest"
+    environment:
+      - POSTGRESQL_USERNAME=app
+      - POSTGRESQL_PASSWORD=app
+      - POSTGRESQL_DATABASE=blogging-db
+    ports:
+      - "5455:5432"
+    cpu_shares: 512
+    mem_limit: 512M
