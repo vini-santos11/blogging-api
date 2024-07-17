@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "86403abf-71a5-47ce-b824-51d3a2372cf1",
+		"_postman_id": "60379fd0-f41d-4fab-a851-804fc01fded4",
 		"name": "Blogging",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23090269",
-		"_collection_link": "https://tcc-comp-usc.postman.co/workspace/Reports~5987c9f7-e578-4690-bac4-078bd95775c2/collection/23090269-86403abf-71a5-47ce-b824-51d3a2372cf1?action=share&source=collection_link&creator=23090269"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36458871"
 	},
 	"item": [
 		{
@@ -14,24 +13,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"Post 01\",\n    \"content\": \"Content 01\"\n}",
+					"raw": "{\n    \"title\": \"Post 04\",\n    \"content\": \"Content 04\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:3001/posts",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"posts"
-					]
-				}
+				"url": "http://localhost:3001/posts"
 			},
 			"response": []
 		},
@@ -54,10 +43,19 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "ea73dac3-a466-40b6-8cd8-34a6112933fa"
+							"value": "7e574707-51e0-40ab-a7d5-acdb157d0f23"
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/posts"
 			},
 			"response": []
 		}
