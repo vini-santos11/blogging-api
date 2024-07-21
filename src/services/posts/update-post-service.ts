@@ -1,5 +1,6 @@
 import { postRepository } from './../../repositories/post-repository';
 import { PostDto } from "../../dto/post-dto";
+import { handlePostNotFound } from '../../utils/errorHandler';
 
 export class UpdatePostService {
     private postRepository = postRepository;
@@ -10,7 +11,7 @@ export class UpdatePostService {
         });
 
         if (!post) {
-            throw "Post not found"
+            handlePostNotFound()
         }
 
         return await this.postRepository.createQueryBuilder()

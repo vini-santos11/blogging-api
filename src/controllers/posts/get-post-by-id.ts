@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { GetPostByIdService } from "../../services/posts/get-post-by-id-service";
 import { Result } from "../../types/result";
 import { postParamsSchema } from "../../utils/schemas";
+import { errorHandler } from "../../utils/errorHandler";
 
 export async function getPostById(request: Request, response: Response) {
     const { id } = postParamsSchema.parse(request.params);
@@ -12,6 +13,6 @@ export async function getPostById(request: Request, response: Response) {
 
         response.status(200).send(new Result(200, null, post));
     } catch (error) {
-        response.status(400).send(new Result(400, String(error), null));
+        errorHandler(error, response);
     }
 }

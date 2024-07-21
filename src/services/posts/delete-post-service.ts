@@ -1,4 +1,5 @@
 import { postRepository } from './../../repositories/post-repository';
+import { handlePostNotFound } from '../../utils/errorHandler';
 
 export class DeletePostService {
     private postRepository = postRepository;
@@ -9,7 +10,7 @@ export class DeletePostService {
         });
 
         if (!post) {
-            throw "Post not found"
+            handlePostNotFound()
         }
 
         return await this.postRepository.createQueryBuilder()
