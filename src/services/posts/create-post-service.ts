@@ -6,7 +6,7 @@ export class CreatePostService {
     private postRepository = postRepository;
 
     async execute(data: PostDto) {
-        var post = this.postRepository.create(data);
+        const post = this.postRepository.create(data);
         return await this.postRepository.save(post);
     }
 }
