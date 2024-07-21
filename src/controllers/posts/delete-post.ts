@@ -13,7 +13,7 @@ export async function deletePost(request: Request, response: Response) {
     try {
         const deleteService = new DeletePostService();
         await deleteService.execute(id);
-        response.status(200).send(new Result(200, null, null));
+        response.status(200).send(new Result(200, `Post '${id}' deleted successfully`, null));
     } catch (error) {
         if (error === "Post not found") {
             return response.status(404).send(new Result(404, 'Post not found', null));

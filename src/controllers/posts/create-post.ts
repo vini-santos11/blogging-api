@@ -13,7 +13,7 @@ export async function createPost(request: Request, response: Response) {
     try {
         const createPostService = new CreatePostService();
         const post = await createPostService.execute({ title, content });
-        response.status(201).send(new Result(201, null, post));
+        response.status(201).send(new Result(201, `Post '${title}' created successfully`, post));
     } catch (error) {
         response.status(400).send(new Result(400, String(error), null));
     }

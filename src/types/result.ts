@@ -1,11 +1,11 @@
 export class Result<T> {
     statusCode: number;
-    error: string | null;
+    message: string | null;
     data: T;
 
-    constructor(statusCode: number, error: string | null, data: T) {
+    constructor(statusCode: number, message: string | null, data: T) {
         this.statusCode = statusCode;
-        this.error = error;
-        this.data = data;   
+        this.message = message;
+        this.data = data;
     }
 }

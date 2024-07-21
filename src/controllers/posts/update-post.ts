@@ -19,7 +19,7 @@ export async function updatePost(request: Request, response: Response) {
     try {
         const updateService = new UpdatePostService();
         await updateService.execute(id, { title, content });
-        response.status(200).send(new Result(200, null, null));
+        response.status(200).send(new Result(200, `Post '${id}' updated successfully`, null));
     } catch (error) {
         if (error === "Post not found") {
             return response.status(404).send(new Result(404, 'Post not found', null));
