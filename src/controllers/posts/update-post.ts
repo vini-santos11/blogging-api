@@ -2,23 +2,16 @@ import { z } from "zod";
 import { Request, Response } from "express";
 import { Result } from "../../types/result";
 import { UpdatePostService } from "../../services/posts/update-post-service";
-
-const bodySchema = z.object({
-    title: z.string({ required_error: "Title is required" }),
-    content: z.string({ required_error: "Content is required" }),
-})
-
-const paramsSchema = z.object({
-    id: z.string({ required_error: "Id is required" }),
-})
+import { postBodySchema, postParamsSchema } from "../../utils/schemas";
 
 export async function updatePost(request: Request, response: Response) {
-    const { id } = paramsSchema.parse(request.params);
-    const { title, content } = bodySchema.parse(request.body);
+    const { id } = postParamsSchema.parse(request.params);
+    const { title, content } = postBodySchema.parse(request.body);
 
     try {
         const updateService = new UpdatePostService();
         await updateService.execute(id, { title, content });
+
         response.status(200).send(new Result(200, `Post '${id}' updated successfully`, null));
     } catch (error) {
         if (error === "Post not found") {

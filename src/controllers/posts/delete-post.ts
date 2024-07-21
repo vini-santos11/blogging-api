@@ -1,18 +1,15 @@
-import { z } from "zod";
 import { Request, Response } from "express";
 import { Result } from "../../types/result";
 import { DeletePostService } from "../../services/posts/delete-post-service";
-
-const paramsSchema = z.object({
-    id: z.string({ required_error: "Id is required" }),
-})
+import { postParamsSchema } from "../../utils/schemas";
 
 export async function deletePost(request: Request, response: Response) {
-    const { id } = paramsSchema.parse(request.params);
+    const { id } = postParamsSchema.parse(request.params);
 
     try {
         const deleteService = new DeletePostService();
         await deleteService.execute(id);
+
         response.status(200).send(new Result(200, `Post '${id}' deleted successfully`, null));
     } catch (error) {
         if (error === "Post not found") {
