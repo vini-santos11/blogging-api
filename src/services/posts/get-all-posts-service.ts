@@ -5,11 +5,6 @@ export class GetAllPostsService {
 
     async execute() {
         const posts = await this.postRepository.find()
-
-        if (!posts) {
-            throw new Error("Posts not found");
-        }
-
         return posts;
     }
 }
