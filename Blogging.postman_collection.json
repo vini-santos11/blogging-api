@@ -15,14 +15,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": ""
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE3MjIwOTgyODAsImV4cCI6MTcyMjA5OTE4MH0.4kLEmczCmBIFk_cBvj8Dk8QV7ysAIVrIJHyHIJJqbR8"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Post 01\",\n    \"content\": \"Content 01\"\n}",
+							"raw": "{\n    \"title\": \"Post 01 teste\",\n    \"content\": \"Content 01 teste2\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -39,29 +39,27 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": ""
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE3MjIwOTgyODAsImV4cCI6MTcyMjA5OTE4MH0.4kLEmczCmBIFk_cBvj8Dk8QV7ysAIVrIJHyHIJJqbR8"
 							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3001/posts/:id",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"posts",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "7e574707-51e0-40ab-a7d5-acdb157d0f23"
-								}
-							]
-						}
+						"url": "http://localhost:3001/posts/123b0700-5b57-44ed-8d99-1515776487ea"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Posts Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE3MjIwOTgyODAsImV4cCI6MTcyMjA5OTE4MH0.4kLEmczCmBIFk_cBvj8Dk8QV7ysAIVrIJHyHIJJqbR8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/posts/admin"
 					},
 					"response": []
 				},
@@ -77,6 +75,38 @@
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:3001/posts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Posts Search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE3MjIwOTgyODAsImV4cCI6MTcyMjA5OTE4MH0.4kLEmczCmBIFk_cBvj8Dk8QV7ysAIVrIJHyHIJJqbR8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/posts/search?keyword=04",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"posts",
+								"search"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "04"
+								}
+							]
+						}
 					},
 					"response": []
 				}
