@@ -3,7 +3,7 @@ import { Result } from "../../types/result";
 import { GetAllPostsService } from "../../services/posts/get-all-posts-service";
 import { errorHandler } from "../../utils/errorHandler";
 
-export async function getAllPosts(_: any, response: Response) {
+export async function getAllPosts(request: Request, response: Response) {
     try {
         const getAllPostsService = new GetAllPostsService();
         const posts = await getAllPostsService.execute();
