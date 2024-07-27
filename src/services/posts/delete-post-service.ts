@@ -10,12 +10,12 @@ export class DeletePostService {
         });
 
         if (!post) {
-            handlePostNotFound()
+            handlePostNotFound();
         }
 
         return await this.postRepository.createQueryBuilder()
             .delete()
             .where("id = :id", { id })
-            .execute()
+            .execute();
     }
 }

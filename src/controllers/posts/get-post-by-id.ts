@@ -11,7 +11,7 @@ export async function getPostById(request: Request, response: Response) {
         const getPostByIdService = new GetPostByIdService();
         const post = await getPostByIdService.execute(id);
 
-        response.status(200).send(new Result(200, null, post));
+        response.status(200).send(new Result(200, "Success", post));
     } catch (error) {
         errorHandler(error, response);
     }

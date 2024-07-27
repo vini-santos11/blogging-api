@@ -11,12 +11,15 @@ export async function loginUser(request: Request, response: Response){
     const { username, password } = userBodySchema.parse(request.body);
 
     try {
-        const JWT_SECRET = process.env.JWT_SECRET
-        const loginUserService = new LoginUserService()
-        const user = await loginUserService.execute(username)
-        const doesPasswordMatch = await compare(password, user.password)
-        if(!doesPasswordMatch) handleInvalidCredentialsError()
-        const token = sign({ username }, JWT_SECRET, { expiresIn: '15m' })
+        const JWT_SECRET = process.env.JWT_SECRET;
+
+        const loginUserService = new LoginUserService();
+        const user = await loginUserService.execute(username);
+
+        const doesPasswordMatch = await compare(password, user.password);
+        if(!doesPasswordMatch) handleInvalidCredentialsError();
+        
+        const token = sign({ username }, JWT_SECRET, { expiresIn: '15m' });
         response.status(200).send(new Result(200, `User ${username} authenticated`, { token }));
     } catch (error) {
         errorHandler(error.message, response);

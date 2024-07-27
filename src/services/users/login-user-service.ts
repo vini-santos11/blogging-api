@@ -7,10 +7,10 @@ export class LoginUserService {
     async execute(username: string) {
         const user = await this.userRepository.findOne({
             where: { username }
-        })
+        });
 
-        if(!user) handleInvalidCredentialsError()
+        if(!user) handleInvalidCredentialsError();
 
-        return user
+        return user;
     }
 }

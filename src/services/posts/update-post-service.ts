@@ -11,7 +11,7 @@ export class UpdatePostService {
         });
 
         if (!post) {
-            handlePostNotFound()
+            handlePostNotFound();
         }
 
         return await this.postRepository.createQueryBuilder()
@@ -21,6 +21,6 @@ export class UpdatePostService {
                 content: updatedPost.content,
             })
             .where("id = :id", { id })
-            .execute()
+            .execute();
     }
 }

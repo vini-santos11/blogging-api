@@ -4,7 +4,7 @@ export class GetAllPostsService {
     private postRepository = postRepository;
 
     async execute() {
-        const posts = await this.postRepository.find()
+        const posts = await this.postRepository.find({ select: { title: true, content: true, createdAt: true }});
         return posts;
     }
 }

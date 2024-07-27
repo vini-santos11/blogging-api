@@ -7,8 +7,8 @@ import { hash } from 'bcryptjs';
 
 export async function createUser(request: Request, response: Response) {
     const { username, password } = userBodySchema.parse(request.body);
-    const hashedPassword = await hash(password, 8)
-    const userWithHashedPassword = { username, password: hashedPassword }
+    const hashedPassword = await hash(password, 8);
+    const userWithHashedPassword = { username, password: hashedPassword };
 
     try {
         const createUserService = new CreateUserService();

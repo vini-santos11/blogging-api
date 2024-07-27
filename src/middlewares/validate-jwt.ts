@@ -1,13 +1,12 @@
 import { Request, Response, NextFunction  } from 'express';
 import { verify } from 'jsonwebtoken';
 import 'dotenv/config';
-import { Result } from '../types/result';
 import { errorHandler } from '../utils/errorHandler';
 
 export function validateJwt(request: Request, response: Response, next: NextFunction ) {   
     try {
-        const routeFreeList = ['POST-/users', 'POST-/users/login']
-        const validateRoutes = `${request.method}-${request.originalUrl}`
+        const routeFreeList = ['POST-/users', 'POST-/users/login', 'GET-/posts']
+        const validateRoutes = `${request.method}-${request.originalUrl}`;
 
         if (!routeFreeList.includes(validateRoutes)){
             const authorization = request.headers["authorization"];

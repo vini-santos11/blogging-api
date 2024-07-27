@@ -9,13 +9,13 @@ export class CreateUserService {
 
         const user = await this.userRepository.findOne({
             where: { username: data.username }
-        })
+        });
 
         if(user){
-            handleUserAlreadyExists()
+            handleUserAlreadyExists();
         }
 
-        const newUser = this.userRepository.create(data)
-        return await this.userRepository.save(newUser)
+        const newUser = this.userRepository.create(data);
+        return await this.userRepository.save(newUser);
     }
 }
