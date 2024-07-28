@@ -34,10 +34,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - users: actions/checkout@v4
-      - users: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "blogging-api"
-          heroku_email: "grupo3fsdt@gmail.com"
+        - uses: actions/checkout@v4
+        - uses: akhileshns/heroku-deploy@v3.12.12
+          with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: "blogging-api"
+            heroku_email: "grupo3fsdt@gmail.com"
 
