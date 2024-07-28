@@ -1,4 +1,5 @@
 import { Response } from "express";
+
 import { Result } from "../../types/result";
 import { GetAllPostsService } from "../../services/posts/get-all-posts-service";
 import { errorHandler } from "../../utils/errorHandler";

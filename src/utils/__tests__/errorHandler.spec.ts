@@ -1,4 +1,4 @@
-import { handlePostNotFound, handleUserAlreadyExists, handleInvalidCredentialsError } from './errorHandler'
+import { handlePostNotFound, handleUserAlreadyExists, handleInvalidCredentialsError } from '../errorHandler'
 
 describe('errorHandler', () => {
     it('should throw error with message of post not found', () => {
