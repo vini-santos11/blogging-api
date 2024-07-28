@@ -17,13 +17,13 @@ export function errorHandler(error: any, response: Response) {
 }
 
 export function handlePostNotFound() {
-    throw ({ message: "Post not found" })
+    throw ({ name: 'Not found', message: "Post not found" })
 }
 
 export function handleUserAlreadyExists() {
-    throw ({ message: "User already exists" })
+    throw ({ name: 'Conflict', message: "User already exists" })
 }
 
 export function handleInvalidCredentialsError() {
-    throw ({ message: "Username or password is incorrect" })
+    throw ({ name: 'Invalid', message: "Username or password is incorrect" })
 }
