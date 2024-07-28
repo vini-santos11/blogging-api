@@ -11,3 +11,23 @@ services:
       - "5455:5432"
     cpu_shares: 512
     mem_limit: 512M
+
+  api:
+    image: node:20-alpine
+    depends_on:
+      - db
+    container_name: blogging-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/app
+      - node_modules:/usr/app/node_modules
+    ports:
+      - 3001:3001
+    working_dir: /usr/app
+    restart: unless-stopped
+    command: npm start
+
+volumes:
+  node_modules:

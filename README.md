@@ -22,20 +22,20 @@ API do Grupo 3 da PÓS Graduação Full Stack Development - FIAP
     npm install
 ```
 
-3. Inicialize o banco de dados:
+3. Inicialize a api e o banco de dados:
 
 ```shell
-    docker compose up -d
+    docker compose up --build -d
 ```
 
-4. Rode as migrations:
+4. Execute o docker da api:
+
+```shell
+    docker exec -it blogging-api sh
+```
+
+5. Rode as migrations dentro do shell do docker:
 
 ```shell
     npm run migration:run
-```
-
-5. Inicialize o projeto:
-
-```shell
-    npm start
 ```
