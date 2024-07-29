@@ -21,7 +21,7 @@ jobs:
       - name: Buld and Push Docker Image
         run:
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-          docker build -t $DOCKER_USERNAME/blogging-api:latest --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }}
+          docker build -t $DOCKER_USERNAME/blogging-api:latest --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }}
           docker push $DOCKER_USERNAME/blogging-api:latest
 
 
