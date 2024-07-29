@@ -2,9 +2,19 @@
 
 API do Grupo 3 da PÓS Graduação Full Stack Development - FIAP
 
+## Tecnologias
+
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+- **[TypeScript](https://www.typescriptlang.org/)** xxxx.
+- **[Docker](https://docs.docker.com)** e **[Docker Compose](https://docs.docker.com/compose/)** para criar nossos ambientes de desenvolvimento e teste.
+- **[Express](https://github.com/expressjs/express)** como uma ferramenta para construir o servidor _web_ que lida com nossos _endpoints_ de listagem e gerenciamento de _posts_.
+- **[Postgres](https://www.postgresql.org)** para armazenar nossos dados e **[TypeORM](https://typeorm.io/)** como um ORM Node.js.
+- **[Zod](https://zod.dev/)** para validações de esuqemas.
+
 ## Requisitos
 
-- Node.js
+- [Node.js](https://nodejs.org/) v18+ para rodar o projeto
 - Docker
 
 # Inicialização
