@@ -10,6 +10,45 @@
 			"name": "Posts",
 			"item": [
 				{
+					"name": "Update Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE3MjIwOTgyODAsImV4cCI6MTcyMjA5OTE4MH0.4kLEmczCmBIFk_cBvj8Dk8QV7ysAIVrIJHyHIJJqbR8"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Post 01 teste - atualizado\",\n    \"content\": \"Content 01 teste2 - atualizado\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3001/posts/123b0700-5b57-44ed-8d99-1515776487ea"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE3MjIwOTgyODAsImV4cCI6MTcyMjA5OTE4MH0.4kLEmczCmBIFk_cBvj8Dk8QV7ysAIVrIJHyHIJJqbR8"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3001/posts/123b0700-5b57-44ed-8d99-1515776487ea"
+					},
+					"response": []
+				},
+				{
 					"name": "Create Post",
 					"request": {
 						"auth": {
