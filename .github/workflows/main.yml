@@ -24,5 +24,4 @@ jobs:
 
       - name: Push Docker Image
         run: 
-          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
           docker push ${{ secrets.DOCKER_USERNAME }}/blogging-api:latest
