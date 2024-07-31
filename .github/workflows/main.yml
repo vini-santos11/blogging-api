@@ -18,14 +18,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-     - name: Build Docker Image
-        run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/blogging-api:latest \
-            --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} \
-            --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} .
+      - name: Build Docker Image
+        run: 
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/blogging-api:latest --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} .
 
       - name: Push Docker Image
-        run: |
+        run: 
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
           docker push ${{ secrets.DOCKER_USERNAME }}/blogging-api:latest
-
-
