@@ -13,7 +13,7 @@ export function errorHandler(error: any, response: Response) {
     }
 
     if (error.code === "22P02") {
-        return response.status(400).send(new Result(400, 'Invalid syntax for uuid', error));
+        return response.status(400).send(new Result(400, 'Invalid syntax for uuid', error.message));
     }
 
     if (error === "Unauthorized") {
@@ -24,7 +24,7 @@ export function errorHandler(error: any, response: Response) {
         return response.status(404).send(new Result(404, 'Username or password is incorrect', null));
     }
 
-    response.status(400).send(new Result(400, String(error), null));
+    response.status(400).send(new Result(400, String(error.message), null));
 }
 
 export function handlePostNotFound() {

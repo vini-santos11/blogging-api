@@ -5,7 +5,7 @@ import { errorHandler } from '../utils/errorHandler';
 
 export function validateJwt(request: Request, response: Response, next: NextFunction ) {   
     try {
-        const routeFreeList = ['POST-/users', 'POST-/users/login', 'GET-/posts']
+        const routeFreeList = ['POST-/users', 'POST-/users/login', 'GET-/posts', 'GET-/docs']
         const validateRoutes = `${request.method}-${request.originalUrl}`;
 
         if (!routeFreeList.includes(validateRoutes)){

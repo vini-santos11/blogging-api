@@ -1,0 +1,1100 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Blogging API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Posts"
+    },
+    {
+      "name": "Users"
+    }
+  ],
+  "paths": {
+    "/posts": {
+      "post": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Create Post",
+        "description": "Create a new post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Sample Title"
+                  },
+                  "content": {
+                    "type": "string",
+                    "example": "Sample content goes here."
+                  }
+                },
+                "required": [
+                  "title",
+                  "content"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 201
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Success message",
+                      "example": "Post 'Sample Title' created successfully"
+                    },
+                    "data": {
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "description": "Post title",
+                          "example": "Sample Title"
+                        },
+                        "content": {
+                          "type": "string",
+                          "description": "Post content",
+                          "example": "Sample content goes here."
+                        },
+                        "id": {
+                          "type": "integer",
+                          "description": "Post ID",
+                          "example": "{postId}"
+                        },
+                        "createdAt": {
+                          "type": "string <date>",
+                          "description": "Post creation date",
+                          "example": "2024-07-12T03:50:10.813Z"
+                        },
+                        "updatedAt": {
+                          "type": "string <date>",
+                          "description": "Post update date",
+                          "example": "2024-07-12T03:50:10.813Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 400
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Error message",
+                      "example": "Content/Title is required"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "description": "Error code",
+                          "example": "invalid_type"
+                        },
+                        "expected": {
+                          "type": "string",
+                          "description": "Expected type",
+                          "example": "string"
+                        },
+                        "received": {
+                          "type": "string",
+                          "description": "Received type",
+                          "example": "undefined"
+                        },
+                        "path": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Path to the invalid field",
+                          "example": [
+                            "content/title"
+                          ]
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "Error message in detail",
+                          "example": "Content/Title is required"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 401
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Unauthorized message",
+                      "example": "Unauthorized"
+                    },
+                    "data": {
+                      "type": "string",
+                      "description": "Unauthorized message",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Update Post",
+        "description": "Update a post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Sample Title"
+                  },
+                  "content": {
+                    "type": "string",
+                    "example": "Sample content goes here."
+                  }
+                },
+                "required": [
+                  "title",
+                  "content"
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Success message",
+                      "example": "Post '{postId}' updated successfully"
+                    },
+                    "data": {
+                      "type": "null",
+                      "description": "Response data"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 400
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Error message",
+                      "example": "Content/Title is required"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "description": "Error code",
+                          "example": "invalid_type"
+                        },
+                        "expected": {
+                          "type": "string",
+                          "description": "Expected type",
+                          "example": "string"
+                        },
+                        "received": {
+                          "type": "string",
+                          "description": "Received type",
+                          "example": "undefined"
+                        },
+                        "path": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Path to the invalid field",
+                          "example": [
+                            "content/title"
+                          ]
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "Error message in detail",
+                          "example": "Content/Title is required"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 401
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Unauthorized message",
+                      "example": "Unauthorized"
+                    },
+                    "data": {
+                      "type": "string",
+                      "description": "Unauthorized message",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/posts/{postId}": {
+        "delete": {
+          "tags": [
+            "Posts"
+          ],
+          "summary": "Delete Post",
+          "description": "Delete a post",
+          "parameters": [
+            {
+              "name": "pathParam",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "statusCode": {
+                        "type": "integer",
+                        "description": "HTTP status code",
+                        "example": 200
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "Success message",
+                        "example": "Post '{postId}' deleted successfully"
+                      },
+                      "data": {
+                        "type": "null",
+                        "description": "Response data"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "statusCode": {
+                        "type": "integer",
+                        "description": "HTTP status code",
+                        "example": 400
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "Error message",
+                        "example": "Invalid syntax for uuid"
+                      },
+                      "data": {
+                        "type": "string",
+                        "description": "Error message",
+                        "example": "Invalid syntax for uuid"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "statusCode": {
+                        "type": "integer",
+                        "description": "HTTP status code",
+                        "example": 401
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "Unauthorized message",
+                        "example": "Unauthorized"
+                      },
+                      "data": {
+                        "type": "string",
+                        "description": "Unauthorized message",
+                        "example": "Unauthorized"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get All Posts",
+        "description": "Gets all posts for the user",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Success message",
+                      "example": "Success"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "createdAt": {
+                            "type": "string <date>",
+                            "description": "Post creation date",
+                            "example": "2024-07-12T03:50:10.813Z"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Post title",
+                            "example": "Sample Title"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "Post content",
+                            "example": "Sample content goes here."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/posts/{postId} ": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get Post By Id",
+        "description": "Get a post by id",
+        "parameters": [
+          {
+            "name": "pathParam",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 201
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Success message",
+                      "example": "Success"
+                    },
+                    "data": {
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "description": "Post title",
+                          "example": "Sample Title"
+                        },
+                        "content": {
+                          "type": "string",
+                          "description": "Post content",
+                          "example": "Sample content goes here."
+                        },
+                        "id": {
+                          "type": "integer",
+                          "description": "Post ID",
+                          "example": "{postId}"
+                        },
+                        "createdAt": {
+                          "type": "string <date>",
+                          "description": "Post creation date",
+                          "example": "2024-07-12T03:50:10.813Z"
+                        },
+                        "updatedAt": {
+                          "type": "string <date>",
+                          "description": "Post update date",
+                          "example": "2024-07-12T03:50:10.813Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/posts/admin": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get All Posts Admin",
+        "description": "Get all posts for admin",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Success message",
+                      "example": "Success"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Post ID",
+                            "example": "{postId}"
+                          },
+                          "updatedAt": {
+                            "type": "string <date>",
+                            "description": "Post update date",
+                            "example": "2024-07-12T03:50:10.813Z"
+                          },
+                          "createdAt": {
+                            "type": "string <date>",
+                            "description": "Post creation date",
+                            "example": "2024-07-12T03:50:10.813Z"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Post title",
+                            "example": "Sample Title"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "Post content",
+                            "example": "Sample content goes here."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 401
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Unauthorized message",
+                      "example": "Unauthorized"
+                    },
+                    "data": {
+                      "type": "string",
+                      "description": "Unauthorized message",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/posts/search?keyword={keyword}": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get All Posts Search",
+        "description": "Search for a post by id",
+        "parameters": [
+          {
+            "name": "queryParam",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Success message",
+                      "example": "Success"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Post ID",
+                            "example": "{postId}"
+                          },
+                          "updatedAt": {
+                            "type": "string <date>",
+                            "description": "Post update date",
+                            "example": "2024-07-12T03:50:10.813Z"
+                          },
+                          "createdAt": {
+                            "type": "string <date>",
+                            "description": "Post creation date",
+                            "example": "2024-07-12T03:50:10.813Z"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Post title",
+                            "example": "Sample Title"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "Post content",
+                            "example": "Sample content goes here."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 401
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Unauthorized message",
+                      "example": "Unauthorized"
+                    },
+                    "data": {
+                      "type": "string",
+                      "description": "Unauthorized message",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create User",
+        "description": "Create a new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "{username}"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "{password}"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 201
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Success message",
+                      "example": "User created successfully"
+                    },
+                    "data": {
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "User ID",
+                          "example": "{userId}"
+                        },
+                        "username": {
+                          "type": "string",
+                          "description": "Username",
+                          "example": "{username}"
+                        },
+                        "createdAt": {
+                          "type": "string <date>",
+                          "description": "Post creation date",
+                          "example": "2024-07-12T03:50:10.813Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 400
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Error message",
+                      "example": "Username/Password is required"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "description": "Error code",
+                          "example": "invalid_type"
+                        },
+                        "expected": {
+                          "type": "string",
+                          "description": "Expected type",
+                          "example": "string"
+                        },
+                        "received": {
+                          "type": "string",
+                          "description": "Received type",
+                          "example": "undefined"
+                        },
+                        "path": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Path to the invalid field",
+                          "example": [
+                            "username/password"
+                          ]
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "Error message in detail",
+                          "example": "Username/Password is required"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400 ": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 400
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Error message",
+                      "example": "User already exists"
+                    },
+                    "data": {
+                      "type": "null",
+                      "description": "Response data"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Login User",
+        "description": "Authenticates a user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "{username}"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "{password}"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Success message",
+                      "example": "User {user} authenticated"
+                    },
+                    "data": {
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "description": "Token",
+                          "example": "{token}"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 400
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Error message",
+                      "example": "Username/Password is required"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "description": "Error code",
+                          "example": "invalid_type"
+                        },
+                        "expected": {
+                          "type": "string",
+                          "description": "Expected type",
+                          "example": "string"
+                        },
+                        "received": {
+                          "type": "string",
+                          "description": "Received type",
+                          "example": "undefined"
+                        },
+                        "path": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Path to the invalid field",
+                          "example": [
+                            "username/password"
+                          ]
+                        },
+                        "message": {
+                          "type": "string",
+                          "description": "Error message in detail",
+                          "example": "Username/Password is required"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "HTTP status code",
+                      "example": 404
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Not found message",
+                      "example": "Username or password is incorrect"
+                    },
+                    "data": {
+                      "type": "null",
+                      "description": "Response data"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,8 +5,12 @@ import cors from 'cors';
 import "reflect-metadata";
 import 'dotenv/config'
 import { validateJwt } from "./middlewares/validate-jwt";
+import path = require("path");
+import { setupRedoc } from "./middlewares/redoc.middleware";
 
 const app = express();
+setupRedoc(app)
+app.use('/swagger.json', express.static(path.join(__dirname, 'swagger/swagger.json')));
 app.use(express.json());
 app.use(cors());
 app.use(validateJwt)
