@@ -1,9 +1,9 @@
+import 'dotenv/config'
 import express from "express";
 import { AppDataSource } from './database/data-source';
 import routes from "./routes/index.routes";
 import cors from 'cors';
 import "reflect-metadata";
-import 'dotenv/config'
 import { validateJwt } from "./middlewares/validate-jwt";
 import path = require("path");
 import { setupRedoc } from "./middlewares/redoc.middleware";
