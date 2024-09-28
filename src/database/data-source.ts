@@ -4,9 +4,9 @@ export const AppDataSource = new DataSource({
     type: "postgres",
     host: process.env.DB_HOST || "db",
     port: Number(process.env.DB_PORT) || 5432,
-    username: "app",
-    password: "app",
-    database: "blogging-db",
+    username: process.env.DB_USERNAME || "app",
+    password: process.env.DB_PASSWORD || "app",
+    database: process.env.DB_NAME || "blogging-db",
     entities: [
         "src/entities/*.{ts,js}"
     ],

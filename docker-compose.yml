@@ -28,6 +28,9 @@ services:
     working_dir: /usr/app
     restart: unless-stopped
     command: npm start
+    environment: 
+      - DB_PORT=5432
+      - DB_HOST=db
 
 volumes:
   node_modules:
