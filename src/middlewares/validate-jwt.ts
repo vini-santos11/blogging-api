@@ -5,15 +5,10 @@ import { errorHandler } from '../utils/errorHandler';
 
 export function validateJwt(request: Request, response: Response, next: NextFunction ) {   
     try {
-        const routeFreeList = ['POST-/users', 'POST-/users/login', 'GET-/posts', 'GET-/docs']
-        const validateRoutes = `${request.method}-${request.originalUrl}`;
-
-        if (!routeFreeList.includes(validateRoutes)){
-            const authorization = request.headers["authorization"];
-            const token = authorization.split(" ")[1]
-            const JWT_SECRET = process.env.JWT_SECRET;
-            verify(token, JWT_SECRET);
-        } 
+        const authorization = request.headers["authorization"];
+        const token = authorization.split(" ")[1]
+        const JWT_SECRET = process.env.JWT_SECRET;
+        verify(token, JWT_SECRET);
         
         next();
     } catch (error) {

@@ -4,7 +4,6 @@ import { AppDataSource } from './database/data-source';
 import routes from "./routes/index.routes";
 import cors from 'cors';
 import "reflect-metadata";
-import { validateJwt } from "./middlewares/validate-jwt";
 import path = require("path");
 import { setupRedoc } from "./middlewares/redoc.middleware";
 
@@ -13,7 +12,6 @@ setupRedoc(app)
 app.use('/swagger.json', express.static(path.join(__dirname, 'swagger/swagger.json')));
 app.use(express.json());
 app.use(cors());
-app.use(validateJwt)
 app.use(routes);
 
 AppDataSource.initialize().then(() => {
