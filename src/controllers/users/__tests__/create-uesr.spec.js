@@ -73,7 +73,7 @@ describe('create-user', () => {
     })
 
     test('should return error when login user service fails', async () => {
-        const mockResult = new Result(400, 'Error: My Error', null)
+        const mockResult = new Result(400, 'My Error', null)
         const validRequest = { body }
 
         jest.spyOn(CreateUserService, 'CreateUserService').mockReturnValueOnce({

@@ -33,7 +33,7 @@ describe('get-all', () => {
     })
 
     test('should return error when get all posts service fails', async () => {
-        const mockResult = new Result(400, 'Error: My Error', null)
+        const mockResult = new Result(400, 'My Error', null)
 
         jest.spyOn(GetAllPostsService, 'GetAllPostsService').mockReturnValueOnce({
             execute: () => { throw new Error("My Error") }

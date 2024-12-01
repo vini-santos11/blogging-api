@@ -11,6 +11,7 @@ jest.mock('../../../repositories/post-repository', () => ({
 const body = {
     title: 'I Am A Title',
     content: 'I Am A Content',
+    author: 'Liniker'
 }
 
 describe('create-post', () => {
@@ -36,7 +37,7 @@ describe('create-post', () => {
     })
 
     test('should return status 400 when does not receive content on request body', async () => {
-        const invalidRequest = { body: { title: 'I Am A Title' } }
+        const invalidRequest = { body: { title: 'I Am A Title', author: 'Liniker' } }
         const zodError = { code: 'invalid_type', expected: 'string', message: "Content is required", path: ["content"], received: 'undefined' }
         const mockResult = new Result(400, 'Content is required', zodError)
 
@@ -48,7 +49,7 @@ describe('create-post', () => {
     })
 
     test('should return status 400 when does not receive title on request body', async () => {
-        const invalidRequest = { body: { content: 'I Am A Content' } }
+        const invalidRequest = { body: { content: 'I Am A Content', author: 'Liniker' } }
         const zodError = { code: 'invalid_type', expected: 'string', message: "Title is required", path: ["title"], received: 'undefined' }
         const mockResult = new Result(400, 'Title is required', zodError)
 
@@ -59,8 +60,10 @@ describe('create-post', () => {
         expect(spyOnCreatePostService).not.toHaveBeenCalled()
     })
 
+    test.todo('should return status 400 when does not receive author on request body')
+
     test('should return error when create post service fails', async () => {
-        const mockResult = new Result(400, 'Error: My Error', null)
+        const mockResult = new Result(400, 'My Error', null)
         const validRequest = { body }
 
         jest.spyOn(CreatePostService, 'CreatePostService').mockReturnValueOnce({

@@ -45,7 +45,7 @@ describe('get-all-post-by-id', () => {
     })
 
     test('should return status 400 when create post service fails', async () => {
-        const mockResult = new Result(400, 'Error: My Error', null)
+        const mockResult = new Result(400, 'My Error', null)
         const validRequest = { params }
 
         jest.spyOn(GetPostByIdService, 'GetPostByIdService').mockReturnValueOnce({

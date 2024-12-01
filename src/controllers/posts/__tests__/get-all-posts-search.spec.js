@@ -44,7 +44,7 @@ describe.only('get-all-posts-search', () => {
     })
 
     test('should return status 400 when get all posts search service fails', async () => {
-        const mockResult = new Result(400, 'Error: My Error', null)
+        const mockResult = new Result(400, 'My Error', null)
 
         jest.spyOn(GetAllPostsSearchService, 'GetAllPostsSearchService').mockReturnValueOnce({
             execute: () => { throw new Error("My Error") }
