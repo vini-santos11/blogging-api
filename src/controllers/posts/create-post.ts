@@ -7,10 +7,10 @@ import { errorHandler } from "../../utils/errorHandler";
 
 export async function createPost(request: Request, response: Response) {
     try {
-        const { title, content } = postBodySchema.parse(request.body);
+        const { title, content, author } = postBodySchema.parse(request.body);
 
         const createPostService = new CreatePostService();
-        const post = await createPostService.execute({ title, content });
+        const post = await createPostService.execute({ title, content, author });
 
         response.status(201).send(new Result(201, `Post '${title}' created successfully`, post));
     } catch (error) {

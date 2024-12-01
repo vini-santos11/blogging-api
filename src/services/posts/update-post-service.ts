@@ -19,6 +19,7 @@ export class UpdatePostService {
             .set({
                 title: updatedPost.title,
                 content: updatedPost.content,
+                updatedBy: updatedPost.author,
             })
             .where("id = :id", { id })
             .execute();

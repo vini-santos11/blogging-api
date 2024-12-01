@@ -8,4 +8,10 @@ export class Post extends BaseEntity {
 
     @Column("text")
     content: string;
+
+    @Column("text")
+    author: string;
+
+    @Column("text")
+    updatedBy: string;
 }
