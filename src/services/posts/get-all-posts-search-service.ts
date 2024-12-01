@@ -1,11 +1,12 @@
-import { Like } from "typeorm";
+import { ILike } from "typeorm";
 import { postRepository } from "../../repositories/post-repository";
 
 export class GetAllPostsSearchService {
     private postRepository = postRepository;
 
     async execute(keyword: string) {
-        const posts = await this.postRepository.findBy({ content: Like(`%${keyword}%`) })
-        return posts;
+        const postsWithWordOnContent = await this.postRepository.findBy({ content: ILike(`%${keyword}%`) })
+        const postsWithWordOnTitle = await this.postRepository.findBy({ title: ILike(`%${keyword}%`) })
+        return [...postsWithWordOnContent, ...postsWithWordOnTitle];
     }
 }
