@@ -12,6 +12,6 @@ export class Post extends BaseEntity {
     @Column("text")
     author: string;
 
-    @Column("text")
-    updatedBy: string;
+    @Column("text", {nullable: true})
+    updatedBy: string | null;
 }
