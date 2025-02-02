@@ -38,3 +38,7 @@ export function handleUserAlreadyExists() {
 export function handleInvalidCredentialsError() {
     throw ({ name: 'Invalid password', message: "Username or password is incorrect" })
 }
+
+export function handleEventNotFound() {
+    throw ({ name: 'Not found', message: "Event not found" })
+}

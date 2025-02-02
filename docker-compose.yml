@@ -11,7 +11,6 @@ services:
       - "5455:5432"
     cpu_shares: 512
     mem_limit: 512M
-
   api:
     image: node:20-alpine
     depends_on:
@@ -28,7 +27,7 @@ services:
     working_dir: /usr/app
     restart: unless-stopped
     command: npm start
-    environment: 
+    environment:
       - DB_PORT=5432
       - DB_HOST=db
 

@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "60379fd0-f41d-4fab-a851-804fc01fded4",
+		"_postman_id": "bfa57ba8-d02d-4331-930f-3a963fd2b2fd",
 		"name": "Blogging",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "36458871"
+		"_exporter_id": "23090269",
+		"_collection_link": "https://tcc-comp-usc.postman.co/workspace/P%25C3%2593S-TECH~a373ab70-e1df-42ef-9b71-f58e7dd1b078/collection/23090269-bfa57ba8-d02d-4331-930f-3a963fd2b2fd?action=share&source=collection_link&creator=23090269"
 	},
 	"item": [
 		{
@@ -108,7 +109,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": ""
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODUzMTkyMiwiZXhwIjoxNzM4NTMyODIyfQ.jk72vx_s5gOPbjKAfaPA5eUuZSmUDXR5kEnKqT1eoNM"
 							}
 						},
 						"method": "GET",
@@ -167,7 +168,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"user\",\r\n    \"password\": \"1234\"\r\n}",
+							"raw": "{\r\n    \"username\": \"marcus\",\r\n    \"password\": \"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -191,7 +192,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"user\",\r\n    \"password\": \"1234\"\r\n}",
+							"raw": "{\r\n    \"username\": \"marcus\",\r\n    \"password\": \"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -199,6 +200,123 @@
 							}
 						},
 						"url": "http://localhost:3001/users/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Create Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODUzMTkyMiwiZXhwIjoxNzM4NTMyODIyfQ.jk72vx_s5gOPbjKAfaPA5eUuZSmUDXR5kEnKqT1eoNM"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Reunião de Pais\",\n    \"description\": \"Reunião de pais para os alunos do 5º, 6º, 7º e 8º anos.\",\n    \"startDate\": \"2025-01-20T09:00:00.000Z\",\n    \"endDate\": \"2025-01-20T12:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3001/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Events",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODUzMTkyMiwiZXhwIjoxNzM4NTMyODIyfQ.jk72vx_s5gOPbjKAfaPA5eUuZSmUDXR5kEnKqT1eoNM"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODUzMTkyMiwiZXhwIjoxNzM4NTMyODIyfQ.jk72vx_s5gOPbjKAfaPA5eUuZSmUDXR5kEnKqT1eoNM"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/events/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"events",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3f1a4613-5d64-467b-bdcf-145575b94141"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODUzMTkyMiwiZXhwIjoxNzM4NTMyODIyfQ.jk72vx_s5gOPbjKAfaPA5eUuZSmUDXR5kEnKqT1eoNM"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Reunião de Pais\",\n    \"description\": \"Reunião de pais para os alunos do 5º, 6º, 7º, 8º e 9º anos.\",\n    \"startDate\": \"2025-01-20T09:00:00.000Z\",\n    \"endDate\": \"2025-01-20T12:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/events/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"events",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3f1a4613-5d64-467b-bdcf-145575b94141"
+								}
+							]
+						}
 					},
 					"response": []
 				}
