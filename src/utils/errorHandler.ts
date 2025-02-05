@@ -42,3 +42,7 @@ export function handleInvalidCredentialsError() {
 export function handleEventNotFound() {
     throw ({ name: 'Not found', message: "Event not found" })
 }
+
+export function handleTeacherNotFound() {
+    throw ({ name: 'Not found', message: "Teacher not found" })
+}

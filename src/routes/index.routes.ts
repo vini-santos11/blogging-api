@@ -13,6 +13,11 @@ import { createEvent } from "../controllers/events/create-event";
 import { getAllEvents } from "../controllers/events/get-all-events";
 import { getEventById } from "../controllers/events/get-event-by-id";
 import { updateEvent } from "../controllers/events/update-event";
+import { getAllTeachers } from "../controllers/teachers/get-all-teachers";
+import { getTeacherById } from "../controllers/teachers/get-teacher-by-id";
+import { createTeacher } from "../controllers/teachers/create-teacher";
+import { updateTeacher } from "../controllers/teachers/update-teacher";
+import { deleteTeacher } from "../controllers/teachers/delete-teacher";
 
 const routes = Router();
 
@@ -31,5 +36,11 @@ routes.post("/events", validateJwt, createEvent);
 routes.get("/events", validateJwt, getAllEvents);
 routes.get("/events/:id", validateJwt, getEventById);
 routes.put("/events/:id", validateJwt, updateEvent);
+
+routes.get("/teachers", validateJwt, getAllTeachers);
+routes.get("/teachers/:id", validateJwt, getTeacherById);
+routes.post("/teachers", validateJwt, createTeacher);
+routes.put("/teachers/:id", validateJwt, updateTeacher);
+routes.delete("/teachers/:id", validateJwt, deleteTeacher);
 
 export default routes;

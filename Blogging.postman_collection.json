@@ -4,7 +4,7 @@
 		"name": "Blogging",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "23090269",
-		"_collection_link": "https://tcc-comp-usc.postman.co/workspace/P%25C3%2593S-TECH~a373ab70-e1df-42ef-9b71-f58e7dd1b078/collection/23090269-bfa57ba8-d02d-4331-930f-3a963fd2b2fd?action=share&source=collection_link&creator=23090269"
+		"_collection_link": "https://tcc-comp-usc.postman.co/workspace/P%C3%93S-TECH~a373ab70-e1df-42ef-9b71-f58e7dd1b078/collection/23090269-bfa57ba8-d02d-4331-930f-3a963fd2b2fd?action=share&source=collection_link&creator=23090269"
 	},
 	"item": [
 		{
@@ -314,6 +314,155 @@
 								{
 									"key": "id",
 									"value": "3f1a4613-5d64-467b-bdcf-145575b94141"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teachers",
+			"item": [
+				{
+					"name": "Create Teacher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODc5ODAxNiwiZXhwIjoxNzM4Nzk4OTE2fQ.XasTANdQCV7oiSDH4pmnARcw_LnP4gzXHQZ13YXlqkY"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Professor 1\",\n    \"email\": \"professor@gmail.com\",\n    \"phone\": \"41987654321\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3001/teachers"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Teachers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODc5ODAxNiwiZXhwIjoxNzM4Nzk4OTE2fQ.XasTANdQCV7oiSDH4pmnARcw_LnP4gzXHQZ13YXlqkY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3001/teachers"
+					},
+					"response": []
+				},
+				{
+					"name": "Get teacher by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODc5ODAxNiwiZXhwIjoxNzM4Nzk4OTE2fQ.XasTANdQCV7oiSDH4pmnARcw_LnP4gzXHQZ13YXlqkY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/teachers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"teachers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "88df9c6b-f745-43bd-b644-3b65ebfcd13e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Teacher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODc5ODAxNiwiZXhwIjoxNzM4Nzk4OTE2fQ.XasTANdQCV7oiSDH4pmnARcw_LnP4gzXHQZ13YXlqkY"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Professor 2\",\n    \"email\": \"professor@gmail.com\",\n    \"phone\": \"41987654321\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/teachers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"teachers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "88df9c6b-f745-43bd-b644-3b65ebfcd13e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Teacher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmN1cyIsImlhdCI6MTczODc5ODAxNiwiZXhwIjoxNzM4Nzk4OTE2fQ.XasTANdQCV7oiSDH4pmnARcw_LnP4gzXHQZ13YXlqkY"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/teachers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"teachers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "88df9c6b-f745-43bd-b644-3b65ebfcd13e"
 								}
 							]
 						}

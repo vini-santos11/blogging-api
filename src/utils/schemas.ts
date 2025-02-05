@@ -29,3 +29,13 @@ export const eventBodySchema = z.object({
 export const eventParamsSchema = z.object({
     id: z.string({ required_error: "Id is required" }),
 })
+
+export const teacherBodySchema = z.object({
+    name: z.string({ required_error: "Name is required" }),
+    email: z.string({ required_error: "Email is required" }).email(),
+    phone: z.string({ required_error: "Phone is required" }),
+})
+
+export const teacherParamsSchema = z.object({
+    id: z.string({ required_error: "Id is required" }),
+})
