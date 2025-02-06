@@ -46,3 +46,7 @@ export function handleEventNotFound() {
 export function handleTeacherNotFound() {
     throw ({ name: 'Not found', message: "Teacher not found" })
 }
+
+export function handleStudentNotFound() {
+    throw ({ name: 'Not found', message: "Student not found" })
+}

@@ -19,6 +19,11 @@ import { createTeacher } from "../controllers/teachers/create-teacher";
 import { updateTeacher } from "../controllers/teachers/update-teacher";
 import { deleteTeacher } from "../controllers/teachers/delete-teacher";
 import { deleteEvent } from "../controllers/events/delete-event";
+import { getAllStudents } from "../controllers/students/get-all-student";
+import { getStudentById } from "../controllers/students/get-student-by-id";
+import { createStudent } from "../controllers/students/create-student";
+import { updateStudent } from "../controllers/students/update-student";
+import { deleteStudent } from "../controllers/students/delete-student";
 
 const routes = Router();
 
@@ -44,5 +49,11 @@ routes.get("/teachers/:id", validateJwt, getTeacherById);
 routes.post("/teachers", validateJwt, createTeacher);
 routes.put("/teachers/:id", validateJwt, updateTeacher);
 routes.delete("/teachers/:id", validateJwt, deleteTeacher);
+
+routes.get("/students", validateJwt, getAllStudents);
+routes.get("/students/:id", validateJwt, getStudentById);
+routes.post("/students", validateJwt, createStudent);
+routes.put("/students/:id", validateJwt, updateStudent);
+routes.delete("/students/:id", validateJwt, deleteStudent);
 
 export default routes;
