@@ -27,33 +27,33 @@ import { deleteStudent } from "../controllers/students/delete-student";
 
 const routes = Router();
 
-routes.put("/posts/:id", validateJwt, updatePost);
-routes.delete("/posts/:id", validateJwt, deletePost);
+routes.put("/posts/:id", updatePost);
+routes.delete("/posts/:id", deletePost);
 routes.get("/posts/search", getAllPostsSearch);
-routes.get("/posts/admin", validateJwt, getAllPostsAdmin);
+routes.get("/posts/admin", getAllPostsAdmin);
 routes.get("/posts/:id", getPostById);
 routes.get("/posts", getAllPosts);
-routes.post("/posts", validateJwt, createPost);
+routes.post("/posts", createPost);
 
 routes.post("/users", createUser);
 routes.post("/users/login", loginUser);
 
-routes.post("/events", validateJwt, createEvent);
-routes.get("/events", validateJwt, getAllEvents);
-routes.get("/events/:id", validateJwt, getEventById);
-routes.put("/events/:id", validateJwt, updateEvent);
-routes.delete("/events/:id", validateJwt, deleteEvent);
+routes.post("/events", createEvent);
+routes.get("/events", getAllEvents);
+routes.get("/events/:id", getEventById);
+routes.put("/events/:id", updateEvent);
+routes.delete("/events/:id", deleteEvent);
 
-routes.get("/teachers", validateJwt, getAllTeachers);
-routes.get("/teachers/:id", validateJwt, getTeacherById);
-routes.post("/teachers", validateJwt, createTeacher);
-routes.put("/teachers/:id", validateJwt, updateTeacher);
-routes.delete("/teachers/:id", validateJwt, deleteTeacher);
+routes.get("/teachers", getAllTeachers);
+routes.get("/teachers/:id", getTeacherById);
+routes.post("/teachers", createTeacher);
+routes.put("/teachers/:id", updateTeacher);
+routes.delete("/teachers/:id", deleteTeacher);
 
-routes.get("/students", validateJwt, getAllStudents);
-routes.get("/students/:id", validateJwt, getStudentById);
-routes.post("/students", validateJwt, createStudent);
-routes.put("/students/:id", validateJwt, updateStudent);
-routes.delete("/students/:id", validateJwt, deleteStudent);
+routes.get("/students", getAllStudents);
+routes.get("/students/:id", getStudentById);
+routes.post("/students", createStudent);
+routes.put("/students/:id", updateStudent);
+routes.delete("/students/:id", deleteStudent);
 
 export default routes;
